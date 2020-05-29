@@ -1,5 +1,5 @@
 [package]
-name = "Image_Graph"
+name = "image_graph"
 version = "0.1.0"
 authors = ["sam"]
 edition = "2018"
