@@ -1,9 +1,6 @@
 # Image Graph
 
 ## Introduction
-![Sample Output](samples/letter_p.png?raw=true "A graph of a block letter p.")
-
-![Sample Output 2](samples/test.png?raw=true "A (bad) graph of some objects on a table.")
 
 This is a computer vision experiment. It reads an image one pixel at a time and compares each pixel to surrounding pixels. The Pythagorean distance in the dimensions x, y, red, green, and blue is used to determine how close a pair of pixels are. 
 
@@ -12,6 +9,11 @@ Each pixel is given a node on a graph. If two pixels are sufficiently close, an 
 The resulting graph represents interesting information about the input image, potentially for use in character and object recognition. In practice, this is not useful yet.
 
 Current version divides graph into isolated subgraphs to limit graph size. Subgraphs are stored in the out/ directory, in the .dot format.
+
+![Sample Output](samples/letter_p.png?raw=true "A graph of a block letter p.")
+
+![Sample Output 2](samples/test.png?raw=true "A (bad) graph of some objects on a table.")
+
 ## Usage
 
 ``` cargo run -- --file path/to/file ```
@@ -40,7 +42,7 @@ Defaults to 5 (uint 32).
 
 ``` --threshhold / -t ```
 
-The maximum distance [sqrt(x^2 + y^2 + r^2 + g^2 + b^2] at which an edge will be drawn.
+The maximum distance (sqrt[x<sup>2</sup> + y<sup>2</sup> + r<sup>2</sup> + g<sup>2</sup> + b<sup>2</sup>]) at which an edge will be drawn.
 
 Defaults to 30.0 (float 64)
 
@@ -51,4 +53,4 @@ Multiplicative factors to apply in colorspace or pixel distance. These are usefu
 Available as arguments because of variations in input images, but comfortable defaults are -s 1 -c 10 (i64).
 
 ## Future 
-The graphs output by the current version are sometimes meaningful. Further work will be required to extract that meaning, by reducing graph density and shortening chains. Currently progress is stalled, because outputs lack orientation which is critical for distinguishing between, eg., a p and a q. I have not arrived at a good solution to this problem. It would be good to adapt to color ranges of input images as well.
+The graphs output by the current version are sometimes meaningful. Further work will be required to extract that meaning by reducing graph density and shortening chains. Currently progress is stalled because outputs lack orientation which is critical for distinguishing between, eg., a p and a q. I have not arrived at a good solution to this problem. It would be good to adapt to color ranges of input images as well.
