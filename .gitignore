@@ -1,4 +1,4 @@
-target/
-temp/
+target
+temp
 src/main2.rs
 
